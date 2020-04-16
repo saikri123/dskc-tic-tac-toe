@@ -1,0 +1,124 @@
+.board
+{
+    height:100vh;
+    width:100vw;
+    border: 2px solid black;
+    display:grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(3,auto);
+}
+.cell
+{
+    height: 100px;
+    width: 100px;
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    border: 2px solid black;
+    cursor: pointer;
+}
+.x.cell,
+.circle.cell
+{
+    cursor: not-allowed;
+}
+
+.board.xhover .cell:hover::before,
+.board.xhover .cell:hover::after,
+.board.circlehover .cell:hover::before,
+.board.circlehover .cell:hover::after
+{
+    background-color:rgba(38, 46, 38, 0.4);
+}
+
+.cell.x::before,
+.cell.x::after,
+.cell.circle::before,
+.cell.circle::after
+{
+    background-color: black;
+}
+.board.xhover .cell:hover:not(.x):not(.circle)::before,
+.board.xhover .cell:hover:not(.x):not(.circle)::after,
+.cell.x::before,
+.cell.x::after
+{
+    content:'';
+    
+    position: relative;
+}
+
+.board.xhover .cell:hover:not(.x):not(.circle)::after,
+.cell.x::after
+{
+    height: 95px;
+    width:20px;
+    transform: rotate(45deg);
+    position: absolute;
+   
+}
+.board.xhover .cell:hover:not(.x):not(.circle)::before,
+.cell.x::before
+{
+    height: 95px;
+    width:20px;
+    transform: rotate(-45deg);
+    position: absolute;
+    
+}
+.board.circlehover .cell:hover:not(.x):not(.circle)::before,
+.board.circlehover .cell:hover:not(.x):not(.circle)::after,
+.cell.circle::before,
+.cell.circle::after
+{
+   content: '';
+   position: relative;
+}
+.board.circlehover .cell:hover:not(.x):not(.circle)::before,
+.cell.circle::before
+{
+    height: 95px;
+    width:95px;
+    border-radius: 50px;
+   
+    position: absolute;
+}
+.board.circlehover .cell:hover:not(.x):not(.circle)::after,
+.cell.circle::after
+{
+    height: 55px;
+    width:55px;
+    border-radius: 50px;
+    background-color:white;
+    position: absolute;
+}
+.win
+{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .9);
+    justify-content: center;
+    align-items: center;
+   
+}
+.win.show
+{
+    display: flex;
+}
+.cond
+{
+    color: white;
+    font-size: x-large;
+}
+.btn
+{
+    padding: 25px;
+  
+}
